@@ -1,5 +1,6 @@
 from src.drone.drone import Drone
-from src.course_correction.course_correction import CourseCorrection
+from course_correction.course_correction import CourseCorrection
+
 
 
 def test_move_with_collision_detection():

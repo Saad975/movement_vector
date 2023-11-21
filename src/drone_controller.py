@@ -1,8 +1,8 @@
 import os
 
-from command_processor import CommandProcessor
-from drone import Drone
-from src.world.world import World
+from drone.command_processor import CommandProcessor
+from drone.drone import Drone
+from world.world import World
 
 
 class DroneController:
@@ -20,7 +20,7 @@ class DroneController:
             raise IndexError("Invalid world or drone dimension.'")
 
         try:
-            current_directory = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+            current_directory = os.path.dirname(os.path.realpath(__file__))
             file_name = os.path.join(current_directory, "commands.txt")
 
             with open(file_name, 'r') as file:

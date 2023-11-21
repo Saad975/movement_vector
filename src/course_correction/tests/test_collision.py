@@ -1,6 +1,6 @@
 import pytest
-from ..collision_dector import CollisionDetection
-from ...drone.drone import Drone
+from course_correction.collision_dector import CollisionDetection
+from drone.drone import Drone
 
 
 @pytest.fixture

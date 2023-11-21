@@ -1,5 +1,5 @@
-from ..course_correction import CourseCorrection
-from ...drone.drone import Drone
+from course_correction.course_correction import CourseCorrection
+from drone.drone import Drone
 
 
 def test_correct_course():

@@ -1,5 +1,5 @@
-from src.course_correction.collision_dector import CollisionDetection
-from src.course_correction.course_correction import CourseCorrection
+from course_correction.collision_dector import CollisionDetection
+from course_correction.course_correction import CourseCorrection
 
 
 class Drone:
