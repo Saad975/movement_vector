@@ -3,13 +3,6 @@ class CommandProcessor:
         self.drone = drone
 
     def process_command(self, command):
-        """
-        Order: int
-        Direction: string (left, right, forward, backward, up, down)
-        Distance: int
-        :param command:
-        :return:
-        """
         split_command = command.split()
         if len(split_command) == 3:
             order, direction, distance = split_command

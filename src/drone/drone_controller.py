@@ -1,6 +1,8 @@
+import os
+
 from command_processor import CommandProcessor
 from drone import Drone
-from world import World
+from src.world.world import World
 
 
 class DroneController:
@@ -18,29 +20,25 @@ class DroneController:
             raise IndexError("Invalid world or drone dimension.'")
 
         try:
-            while True:
-                command = input("Enter Command (e.g: '01 Left 01'): ")
+            current_directory = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+            file_name = os.path.join(current_directory, "commands.txt")
 
-                if not command:
-                    break
-
-                self.command_processor.process_command(command)
-
-        except ValueError as e:
-            print(e)
-        except KeyboardInterrupt:
-            pass
+            with open(file_name, 'r') as file:
+                for line in file:
+                    command = line.strip()
+                    if not command:
+                        break
+                    self.command_processor.process_command(command)
+        except FileNotFoundError:
+            print(f"Error: File '{filename}' not found.")
 
         self.drone.land()
 
 
 if __name__ == "__main__":
-    world_dimensions = input("Enter World Dimension in Integer, Seprated By Space (e.g: 10 10 10): ")
-    drone_dimensions = input("Enter Drone Start Position in Integer, Seprated By Space (e.g: 5 5 5): ")
 
-    world_dimensions = world_dimensions.split()
-    drone_start_position = drone_dimensions.split()
+    world_dimensions = [10, 10, 10]
+    drone_start_position = [5, 5, 5]
 
     drone_controller = DroneController(world_dimensions, drone_start_position)
-
     drone_controller.run_simulation()
