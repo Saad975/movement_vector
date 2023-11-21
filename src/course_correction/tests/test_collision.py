@@ -1,4 +1,5 @@
 import pytest
+
 from course_correction.collision_dector import CollisionDetection
 from drone.drone import Drone
 
